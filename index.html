@@ -13,7 +13,80 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
+
+<script>
+  // Cambia aquí la clave deseada:
+  document.addEventListener('DOMContentLoaded', function() {
+  const CORRECT_PASSWORD = "1234"; // <- cámbiala por la tuya
+
+  const overlay = document.getElementById('auth-overlay');
+  const input = document.getElementById('auth-input');
+  const btn = document.getElementById('auth-btn');
+  const err = document.getElementById('auth-error');
+
+  // Si ya autenticado en localStorage, oculta overlay
+  if (sessionStorage.getItem('site_authenticated') === '1') {
+    overlay.style.display = 'none';
+  } else {
+    overlay.style.display = 'flex';
+    input.focus();
+  }
+
+  function tryAuth() {
+    const val = input.value || '';
+    if (val === CORRECT_PASSWORD) {
+      sessionStorage.setItem('site_authenticated', '1'); // persiste
+      overlay.style.display = 'none';
+      // opcional: limpiar el input
+      input.value = '';
+      err.textContent = '';
+    } else {
+      err.textContent = 'Clave incorrecta. Inténtalo de nuevo.';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  // eventos
+  btn.addEventListener('click', tryAuth);
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') tryAuth();
+  });
+
+  // Evitar que tab navegue fuera del modal (accesibilidad básica)
+  document.addEventListener('focus', function(evt){
+    if (overlay.style.display !== 'none' && !overlay.contains(evt.target)) {
+      evt.stopPropagation();
+      input.focus();
+    }
+  }, true);
+})();
+</script>
+
+
+
 <body>
+
+<!-- Auth overlay: pega esto al inicio del <body> -->
+<div id="auth-overlay" class="auth-overlay">
+  <div class="auth-box" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <h2 id="auth-title">Acceso invitados</h2>
+    <p>Introduce la clave para ver la web.</p>
+
+    <input id="auth-input" type="password" placeholder="Introduce la clave" aria-label="Clave">
+    <div class="auth-actions">
+      <button id="auth-btn">Entrar</button>
+    </div>
+
+    <p id="auth-error" class="auth-error" aria-live="polite"></p>
+
+    <p class="auth-hint">¿No tienes clave? Contacta con los novios 😊</p>
+  </div>
+</div>
+
+
+
 
   <!-- HEADER -->
   <header>
@@ -310,6 +383,19 @@
     </div>
   </footer>
 
+
+  <script>
+    // Cierra menú al clicar en cualquier enlace
+    const menuToggle = document.getElementById('menu-toggle');
+    const links = document.querySelectorAll('nav a');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.checked = false; // cierra el menú
+      });
+    });
+  </script>
+
+
 </body>
 </html>
-
