@@ -91,7 +91,7 @@ section {
   min-height: 80vh;
   background: linear-gradient(rgba(250,218,221,0.6), rgba(250,218,221,0.6)),
               url('portada2.jpeg') no-repeat center center/cover;
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   color: #333;
   padding: 20px;
   padding-top: 130px;
@@ -666,3 +666,4 @@ Ctrl + Shift + M */
     font-size: 0.95rem;
   }
 }
+
