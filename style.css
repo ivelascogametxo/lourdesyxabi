@@ -91,7 +91,7 @@ section {
   min-height: 80vh;
   background: linear-gradient(rgba(250,218,221,0.6), rgba(250,218,221,0.6)),
               url('portada2.jpeg') no-repeat center center/cover;
-  /*background-attachment: fixed;*/
+  /* background-attachment: fixed; */
   color: #333;
   padding: 20px;
   padding-top: 130px;
@@ -354,8 +354,8 @@ section {
   padding: 5px;
   text-align: center;
   color: #2c3e50;  
-  margin-left: 10vw;
-  margin-right: 10vw;
+
+  padding: 5vh 10vw 5vh 10vw;
 }
 
 .hotels-content {
@@ -666,4 +666,3 @@ Ctrl + Shift + M */
     font-size: 0.95rem;
   }
 }
-
