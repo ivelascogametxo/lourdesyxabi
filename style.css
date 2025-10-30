@@ -53,6 +53,35 @@ header .nav a:hover {
   color: #000000;
 }
 
+#menu-toggle {
+  display: none;
+}
+
+/* Icono hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: clamp(1.2rem, 4vw, 4rem);
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%); /* 💡 centra verticalmente */
+  z-index: 2000;
+}
+
+/* Para escritorio */
+section {
+  scroll-margin-top: 130px; /* altura del header en escritorio */
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 80px; /* altura del header en móvil */
+  }
+}
+
 /* HERO */
 .hero {
   display: flex;
@@ -62,6 +91,7 @@ header .nav a:hover {
   min-height: 80vh;
   background: linear-gradient(rgba(250,218,221,0.6), rgba(250,218,221,0.6)),
               url('portada2.jpeg') no-repeat center center/cover;
+  background-attachment: fixed;
   color: #333;
   padding: 20px;
   padding-top: 130px;
@@ -76,22 +106,6 @@ header .nav a:hover {
 .hero p {
   font-size: 1.2rem;
   margin: 15px 0;
-}
-
-.btn-cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #2F6B3A;
-  color: #fff;
-  font-weight: lighter;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.btn-cta:hover {
-  background-color: #A8D0C3;
 }
 
 /* Save the date */
@@ -144,8 +158,10 @@ header .nav a:hover {
 .announcement-section {
   margin-top: 0px;
   margin-bottom: 0px;
+  /* margin-left: 10vw;
+  margin-right: 10vw; */
   background-color: #f9fafb;
-  padding: 10px 20px 20px 20px;
+  padding: 5vh 10vw 5vh 10vw;
   text-align: center;
   color: #2c3e50;
 }
@@ -157,7 +173,7 @@ header .nav a:hover {
 
 .announcement-content p {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.9rem); /* tamaño mínimo, relativo, máximo */
   line-height: 1.8;
   font-weight: 400;
   color: #333;
@@ -165,41 +181,45 @@ header .nav a:hover {
 
 /* ITINERARIO */
 .timeline {
-  padding: 10px 20px;
+  padding: 2vw 4vw;
   text-align: center;
   background: #F8F8F0;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
+  /* overflow-x: auto; 🔹 permite desplazamiento si no cabe */
 }
 
 .timeline h2 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 100;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;  
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2vw;
+  color: #333;
   text-align: center;
 }
 
 .timeline-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  max-width: 1000px;
+  width: 90vw; /* mínimo 700px, se adapta después */
   margin: 0 auto;
-  padding: 0 10px;
-  flex-wrap: wrap;
+  padding: 0 2vw;
+  flex-wrap: nowrap; /* 🔹 evita que se apilen */
+  gap: 3vw;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 .timeline-container::before {
   content: "";
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   right: 0;
-  height: 0.5px;
+  height:  min(1px, 0.1vw); 
   background: #333;
   z-index: 3;
 }
@@ -207,8 +227,8 @@ header .nav a:hover {
 .timeline-item {
   position: relative;
   text-align: center;
-  flex: 1 1 200px;
-  padding: 0 10px;
+  flex: 1 1 auto; /* ✅ proporcional */
+  padding: 0 1vw;
   z-index: 1;
 }
 
@@ -218,16 +238,16 @@ header .nav a:hover {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 0.5px;
-  height: 40px;
+  width: min(1px, 0.1vw); 
+  height: 4vw;
   background: #333;
   z-index: 1;
 }
 
 .timeline-item .icon {
-  width: 80px;
-  height: 80px;
-  margin: 60px auto 0px auto;
+  width: clamp(50px, 8vw, 80px);
+  height: clamp(50px, 8vw, 80px);
+  margin: 6vw auto 0 auto;
   z-index: 2;
 }
 
@@ -245,61 +265,63 @@ header .nav a:hover {
 }
 
 .timeline-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  margin-bottom: 0.5vw;
   font-family: 'Quicksand', sans-serif;
   font-weight: 100;
 }
 
 .timeline-item p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 2rem);
   font-family: 'Quicksand', sans-serif;
   font-weight: 100;
 }
+
+
 
 /* MAPA 2 COLUMNAS */
 .locations {
   display: flex;
   flex-wrap: wrap;
-  gap: 100px;
-  padding: 10px 20px 0px 20px;
+  gap: clamp(1rem, 4vw, 6rem); /* espacio proporcional entre columnas */
+  padding: clamp(0.5rem, 2vw, 2rem) clamp(1rem, 4vw, 2rem) 0 clamp(1rem, 4vw, 2rem);
   justify-content: center;
   background-color: #fff;
   color: #333;
-  margin-bottom: -220px;
-  padding-bottom: 0;
+  padding-bottom: 5vh; /* espacio interno con color */
 }
 
 .location {
-  flex: 1 1 45%;
+  flex: 1 1 clamp(200px, 45%, 500px); /* escala proporcional pero no menor de 200px ni mayor de 500px */
   text-align: center;
-  max-width: 500px;
-  margin-bottom: 0px;
+  max-width: clamp(300px, 45%, 500px); /* máximo adaptable */
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 .location h2 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 100;
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.15rem, 3vw, 2rem); /* escala según ancho */
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
   color: #333;
 }
 
 .location h3 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 100;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* escalable */
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
   color: #333;
 }
 
 .location-img {
-  height: 30%;
-  width: 85%;
+  width: 85%;           /* ancho proporcional al contenedor */
+  height: auto;         /* altura proporcional a la imagen original */
+  aspect-ratio: 4 / 3;  /* mantener la misma proporción siempre */
   object-fit: cover; 
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  margin-bottom: 15px;
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
   transition: transform 0.3s ease;
   display: block;
   margin-left: auto;
@@ -307,27 +329,33 @@ header .nav a:hover {
 }
 
 .map-container {
-  display: inline-block;
-  border: 0px solid #333;
+  position: relative;         /* necesario para el iframe absoluto */
+  width: clamp(180px, 75%, 700px);  /* escala proporcional y tiene mínimo/máximo */
+  aspect-ratio: 16 / 9;       /* mantiene proporción 16:9 */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding-bottom: 0;
-  height: auto;
+  margin: 0 auto;             /* centra el mapa */
 }
 
 .map-container iframe {
+  position: absolute;         /* ocupa todo el contenedor */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   border: none;
 }
+
 
 /* HOTELES */
 .hotels-section {
   background-color: #F8F8F0;
-  padding: 5px 20px;
+  padding: 5px;
   text-align: center;
-  color: #2c3e50;
+  color: #2c3e50;  
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 .hotels-content {
@@ -337,15 +365,16 @@ header .nav a:hover {
 
 .hotels-content h2 {
   font-family: 'Quicksand', sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-  margin-bottom: 25px;
+  font-weight: 100;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2vw;
   color: #333;
+  text-align: center;
 }
 
 .hotels-content p {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.9rem); /* tamaño mínimo, relativo, máximo */
   line-height: 1.8;
   font-weight: 400;
   color: #333;
@@ -355,11 +384,13 @@ header .nav a:hover {
 /* Galería */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, 17vw);
   justify-content: center;
   gap: 20px;  
   background-color: #F8F8F0;
   margin-bottom: 20px;
+  padding-left: clamp(10px, 5%, 20px);  /* mínimo 10px, máximo 20px, relativo a ancho */
+  padding-right: clamp(10px, 5%, 20px);
 }
 
 .gallery-item {
@@ -370,7 +401,7 @@ header .nav a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
   height: 100%;
-  margin-top: 15px;
+  margin-top: 15px;  
 }
 
 .gallery-item img {
@@ -398,10 +429,10 @@ header .nav a:hover {
   font-size: 1.5rem;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
   pointer-events: none;
-  width: 90%;
+  width: 100%;
   padding: 8px 15px;
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 8px;
+  border-radius: 1vw;
 }
 
 /* FOOTER */
@@ -432,18 +463,75 @@ header .nav a:hover {
   margin: 0;
 }
 
+
+
 /* --- MEDIA QUERIES PARA TABLET/MÓVIL --- */
+
+/* Ctrl + Shift + I
+Ctrl + Shift + M */
+
 
 /* Tablets: hasta 768px */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    padding: 15px 20px;
+    position: fixed;
   }
 
   header .nav ul {
     flex-direction: column;
     gap: 10px;
+  }
+
+  /* Mostrar el icono hamburguesa */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Menú oculto por defecto */
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* contenido pegado a la derecha */
+    position: absolute;
+    top: 100%; /* debajo del header */
+    right: 0;
+    background-color: #F8F8F0;
+    width: 70%; /* ancho del panel desplegable */
+    max-width: 120px;
+    padding: 10px 0;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    text-align: right;
+  }
+
+  .nav a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+  }
+
+  .nav a:hover {
+    background-color: #e8e8e0;
+  }
+
+  /* Cuando el checkbox está marcado → muestra el menú */
+  #menu-toggle:checked + .menu-icon + .nav {
+    transform: translateX(0);
   }
 
   .hero h1 {
@@ -462,17 +550,17 @@ header .nav a:hover {
     font-size: 1.5rem;
   }
 
-  .timeline-container {
+  /* .timeline-container {
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
   .timeline-item {
     flex: 1 1 100%;
     padding: 10px 0;
   }
 
-  .locations {
+  /* .locations {
     flex-direction: column;
     gap: 40px;
     margin-bottom: 0;
@@ -481,7 +569,7 @@ header .nav a:hover {
   .location {
     flex: 1 1 100%;
     max-width: 90%;
-  }
+  } */
 
   .hotels-content h2 {
     font-size: 1.7rem;
@@ -492,7 +580,7 @@ header .nav a:hover {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 50vw));
   }
 
   .overlay-text {
@@ -530,31 +618,31 @@ header .nav a:hover {
     font-size: 1.3rem;
   }
 
-  .timeline-item h3 {
+  /* .timeline-item h3 {
     font-size: 1rem;
-  }
+  } */
 
-  .timeline-item p {
+  /* .timeline-item p {
     font-size: 0.9rem;
-  }
+  } */
 
-  .locations {
+  /* .locations {
     gap: 20px;
     padding: 10px 10px 0 10px;
-  }
+  } */
 
-  .location h2 {
+  /* .location h2 {
     font-size: 1.5rem;
-  }
+  } */
 
   .location h3 {
     font-size: 0.9rem;
   }
 
-  .location-img {
+  /* .location-img {
     width: 100%;
     height: auto;
-  }
+  } */
 
   .hotels-content h2 {
     font-size: 1.5rem;
@@ -565,7 +653,7 @@ header .nav a:hover {
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 50vw;
   }
 
   .overlay-text {
