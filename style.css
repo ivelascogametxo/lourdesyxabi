@@ -5,7 +5,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-weight: 10;
-  background-color: #F8F8F0; /* Blanco roto */
+  background-color: #f9fafb; /* Blanco roto */
   color: #333;
 }
 
@@ -25,7 +25,7 @@ header {
 }
 
 header .logo a {
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 3vw, 1.5rem);
   font-weight: lighter;
   color: #333;
   font-family: 'Great Vibes', cursive;
@@ -103,11 +103,6 @@ section {
   font-size: 3rem;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin: 15px 0;
-}
-
 /* Save the date */
 .save-date-section {
   text-align: center;
@@ -183,7 +178,7 @@ section {
 .timeline {
   padding: 2vw 4vw;
   text-align: center;
-  background: #F8F8F0;
+  background: #f9fafb;
   color: #333;
   margin-bottom: 5vh;
   /* overflow-x: auto; 🔹 permite desplazamiento si no cabe */
@@ -286,7 +281,7 @@ section {
   gap: clamp(1rem, 4vw, 6rem); /* espacio proporcional entre columnas */
   padding: clamp(0.5rem, 2vw, 2rem) clamp(1rem, 4vw, 2rem) 0 clamp(1rem, 4vw, 2rem);
   justify-content: center;
-  background-color: #fff;
+  background-color: #f9fafb;
   color: #333;
   padding-bottom: 5vh; /* espacio interno con color */
 }
@@ -350,7 +345,7 @@ section {
 
 /* HOTELES */
 .hotels-section {
-  background-color: #F8F8F0;
+  background-color: #f9fafb;
   padding: 5px;
   text-align: center;
   color: #2c3e50;  
@@ -387,7 +382,7 @@ section {
   grid-template-columns: repeat(auto-fit, 17vw);
   justify-content: center;
   gap: 20px;  
-  background-color: #F8F8F0;
+  background-color: #f9fafb;
   margin-bottom: 20px;
   padding-left: clamp(10px, 5%, 20px);  /* mínimo 10px, máximo 20px, relativo a ancho */
   padding-right: clamp(10px, 5%, 20px);
@@ -534,12 +529,8 @@ Ctrl + Shift + M */
     transform: translateX(0);
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
+ .hero {
+    min-height: 40vh;
   }
 
   .save-date-content h2 {
@@ -590,13 +581,13 @@ Ctrl + Shift + M */
 
 /* Móviles pequeños: hasta 480px */
 @media (max-width: 480px) {
-  header {
+  /* header {
     padding: 10px 15px;
-  }
+  } */
 
-  header .logo a {
+  /* header .logo a {
     font-size: 1.2rem;
-  }
+  } */
 
   header .nav ul {
     gap: 8px;
