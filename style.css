@@ -342,6 +342,35 @@ section {
 }
 
 
+/* BOTON FORMULARIO */
+.boton-formulario {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #6b936f;
+    color: #f9fafb;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none; /* Por si lo usas en <a> */
+}
+
+/* Efecto hover */
+.boton-formulario:hover {
+    background-color: #6b936f;
+    transform: translateY(-2px);
+}
+
+/* Efecto al hacer clic */
+.boton-formulario:active {
+    background-color: #537356;
+    transform: translateY(0);
+}
+
+
+
 /* HOTELES */
 .hotels-section {
   background-color: #f9fafb;
@@ -665,10 +694,10 @@ Ctrl + Shift + M */
 
 /* --- Auth overlay styles --- */
 /* overlay (cubre toda la pantalla) */
-.auth-overlay {
+/* .auth-overlay {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(10,10,10,1); /* más oscuro para ocultar contenido */
+  inset: 0; 
+  background: rgba(10,10,10,1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -676,7 +705,7 @@ Ctrl + Shift + M */
   padding: 20px;
 }
 
-/* caja del modal */
+
 .auth-box {
   width: 100%;
   max-width: 480px;
@@ -692,7 +721,7 @@ Ctrl + Shift + M */
 .auth-box h2 {
   margin: 0 0 8px 0;
   font-weight: 500;
-  color: #4A7856; /* tu verde */
+  color: #4A7856;
   font-size: 1.4rem;
 }
 
@@ -742,5 +771,5 @@ Ctrl + Shift + M */
   margin-top: 14px;
   color: #888;
   font-size: 0.85rem;
-}
+} */
 
