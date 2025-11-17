@@ -13,8 +13,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<!-- 
 
+<!-- 
 <script>
   // Cambia aquí la clave deseada:
   document.addEventListener('DOMContentLoaded', function() {
@@ -62,16 +62,14 @@
     }
   }, true);
 })();
-</script>
--->
+</script> -->
+
 
 
 <body>
 
 <!-- Auth overlay: pega esto al inicio del <body> -->
-
-  <!--
-<div id="auth-overlay" class="auth-overlay">
+<!-- <div id="auth-overlay" class="auth-overlay">
   <div class="auth-box" role="dialog" aria-modal="true" aria-labelledby="auth-title">
     <h2 id="auth-title">Acceso invitados</h2>
     <p>Introduce la clave para ver la web.</p>
@@ -85,9 +83,9 @@
 
     <p class="auth-hint">¿No tienes clave? Contacta con los novios 😊</p>
   </div>
-</div>
+</div> -->
 
--->
+
 
 
   <!-- HEADER -->
@@ -102,9 +100,9 @@
       <nav>
         <ul>
           <li><a href="#itinerario">Itinerario</a></li>
-          <li><a href="#transporte">Transporte</a></li> 
+          <li><a href="#transporte">Transporte</a></li>
+          <li><a href="#formulario">Formulario</a></li>
           <li><a href="#hoteles">Hoteles</a></li>
-          <!-- <li><a href="#formulario">Formulario</a></li> -->
         </ul>
       </nav>
     </div>
@@ -293,7 +291,7 @@
      </div>
   </div>
 </section>
-  
+
 
 <!-- TRANSPORTE -->
 <section class="hotels-section" id="transporte">
@@ -310,6 +308,16 @@
   </div>
 </section>
 
+<!-- SECCIÓN DOS COLUMNAS -->
+<section class="hotels-section" id="formulario">
+  <div class="hotels-content">
+    <h2>CONFIRMA TU ASISTENCIA</h2>
+  </div>
+  <div class="hotels-content">
+    <p style="font-style: italic;">¡No olvides confirmar tu asistencia!</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScqMQ1hz9pAAlgt5qK35OL8RHIf6qPjuSHsA0_5HriH6TszeQ/viewform?usp=header" class="boton-formulario">Formulario</a>
+  </div>
+</section>
 
 <!-- HOTELES -->
 <section class="hotels-section" id="hoteles">
@@ -341,6 +349,8 @@
 </section>
 
 
+<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScqMQ1hz9pAAlgt5qK35OL8RHIf6qPjuSHsA0_5HriH6TszeQ/viewform?embedded=true" width="640" height="552" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
+
   <!-- Número de cuenta -->
   <!-- <section class="gift-section">
     <div class="gift-content">
@@ -351,19 +361,6 @@
     </div>
   </section> -->
 
-
-    <!-- SECCIÓN DOS COLUMNAS -->
-  <!-- <section class="two-columns" id="formulario">
-    <div class="column image-column">
-      <div class="image-container">
-        <img src="https://picsum.photos/600/400?random=1" alt="Diseño web">
-      </div>
-    </div>
-    <div class="column content-column">
-      <h2>No olvides confirmar tu asistencia!</h2>
-      <a href="#formulariolink" class="btn-link">Formulario</a>
-    </div>
-  </section> -->
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -415,7 +412,28 @@
     });
   </script>
 
+  <!-- Efecto parallax -->
+  <!-- <script>
+  window.addEventListener("scroll", function () {
+    const parallax = document.querySelector(".hero");
+    let scrollPos = window.pageYOffset;
+    
+    parallax.style.backgroundPositionY = -(scrollPos * 0.2) + "px";  
+  });
+</script> -->
+<!-- <script>
+  const parallax = document.querySelector(".hero");
+
+  // posición inicial de tu imagen
+  const BASE_OFFSET = 40; // ← cámbialo a tu gusto
+
+  window.addEventListener("scroll", function () {
+  const scrolled = window.pageYOffset;
+  const movement = BASE_OFFSET + scrolled * 0.3;  
+  parallax.style.backgroundPosition = `center ${movement}px`;
+});
+</script> -->
+
 
 </body>
 </html>
-
