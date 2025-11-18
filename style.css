@@ -520,7 +520,7 @@ Ctrl + Shift + M */
     right: 0;
     background-color: #F8F8F0;
     width: 70%; /* ancho del panel desplegable */
-    max-width: 120px;
+    max-width: 150px;
     padding: 10px 0;
     box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.15);
     transform: translateX(100%);
@@ -772,4 +772,5 @@ Ctrl + Shift + M */
   color: #888;
   font-size: 0.85rem;
 } */
+
 
