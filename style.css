@@ -179,7 +179,7 @@ section {
   text-align: center;
   background: #f9fafb;
   color: #333;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
   /* overflow-x: auto; 🔹 permite desplazamiento si no cabe */
 }
 
@@ -411,7 +411,7 @@ section {
   justify-content: center;
   gap: 20px;  
   background-color: #f9fafb;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   padding-left: clamp(10px, 5%, 20px);  /* mínimo 10px, máximo 20px, relativo a ancho */
   padding-right: clamp(10px, 5%, 20px);
 }
