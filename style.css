@@ -414,6 +414,7 @@ section {
   /* margin-bottom: 20px; */
   padding-left: clamp(10px, 5%, 20px);  /* mínimo 10px, máximo 20px, relativo a ancho */
   padding-right: clamp(10px, 5%, 20px);
+  padding-bottom: 60px;
 }
 
 .gallery-item {
@@ -464,7 +465,7 @@ section {
   color: #333;
   padding: 20px 20px;
   text-align: center;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .footer-container {
