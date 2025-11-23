@@ -416,7 +416,7 @@ section {
   /* margin-bottom: 20px; */
   padding-left: clamp(10px, 5%, 20px);  /* mínimo 10px, máximo 20px, relativo a ancho */
   padding-right: clamp(10px, 5%, 20px);
-  padding-bottom: 60px;
+  padding-bottom: 15px;
 }
 
 .gallery-item {
